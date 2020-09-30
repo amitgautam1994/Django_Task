@@ -9,7 +9,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import  account, MyAccountManager
+from .models import account, MyAccountManager
 from .serializers import AccountSerializer
 
 from django.contrib.auth import authenticate, login, user_logged_in
@@ -32,6 +32,10 @@ from .verify_token import tokenIsExpire, userid_from_token
 
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
 from django.core.validators import validate_email
+
+
+def index(request):
+    return render(request, 'login/index.html')
 
 
 # Create your views here.
